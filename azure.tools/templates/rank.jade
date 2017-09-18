@@ -1,0 +1,12 @@
+extend ./layout
+
+block content
+
+	h2 {{ titled }}
+
+	|{{#ranked}}
+
+	p
+		a(href="http://www.google.com/{{ db }}" target="_blank") #[| {{ named }}]
+
+	|{{/ranked}}

@@ -1,0 +1,28 @@
+extend ./layout
+
+block style
+
+			| body,textarea,input { font-family:arial; font-size:16pt; font-weight:700; color:#000000; }
+			| textarea { border:1px solid #dbdbdb; padding:10px 20px; }
+			| button,input { display:block; padding:20px 40px; margin-top:20px; }
+			| #k { border:1px solid #dbdbdb; padding:10px 20px; }
+
+block content
+
+	include msgs.paging.scout.jade
+
+	textarea#msg(rows="10" cols="32")
+
+	input#k(type="text" size="11" value="")
+
+	button(onclick="scout.send('#{args.API}')") Send
+
+	blockquote
+		each msg in msgs
+			p(onclick="scout.clicked(this)")= msg
+
+
+block scripts
+
+	script(type="text/javascript" src="../js/aja.js")
+	script(type="text/javascript" src="../js/paging.scout.js")
