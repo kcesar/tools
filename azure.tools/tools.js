@@ -25,6 +25,8 @@ app.disable("x-powered-by")
 
 const db = new sqlite3.Database(DB_ESAR)
 
+TEMPLATE_ESAR_DUTYOL = fs.readFileSync(__dirname + '/templates/kcesar.rotation.txt').toString()
+
 // ..... operations oriented .....
 
 app.get(OPERATIONS + "/dol/csv", function (req, res) {
@@ -73,8 +75,6 @@ app.get(OPERATIONS + "/doc", function (req, res) {
 app.get(OPERATIONS + "/doc/edit", function (req, res) {
 
 	var ops = [], comms = [], days = []
-
-	var db = new sqlite3.Database(DB_ESAR)
 
 	db.all("SELECT k,named FROM ols", function(err, rs) {
 
@@ -200,6 +200,8 @@ app.all("*", function(req, res) {
 
 });
 
+app.listen(WWW_PORT, IP, function() {});
+
 function PageMessage (msg) {
 
 	var api_options = {}
@@ -217,8 +219,6 @@ function PageMessage (msg) {
 	})
 
 }
-
-TEMPLATE_ESAR_DUTYOL = fs.readFileSync(__dirname + '/templates/kcesar.rotation.txt').toString()
 
 function rotation (callback) {
 
@@ -240,4 +240,3 @@ function rotation (callback) {
 
 }
 
-app.listen(WWW_PORT, IP, function() {});
