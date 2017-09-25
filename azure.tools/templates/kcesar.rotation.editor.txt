@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<style>
+			body { font-family:arial; font-weight:300; }
+			td { padding:5px 10px; border:1px solid #dcdcdc; }
+			.dirty { color:#ffffff; background-color:#ff0000; }
+		</style>
+	</head>
+	<body>
+
+		Start date: <select data-bind="value:rotation_date"> {{#RD}} <option value="{{k}}">{{d}}</option>{{/RD}} </select>
+		OL: <select data-bind="value:rotation_ol"> {{#OR}} <option value="{{k}}">{{n}}</option>{{/OR}} </select>
+		COMM: <select data-bind="value:rotation_comm"> {{#CR}} <option value="{{k}}">{{n}}</option>{{/CR}} </select>
+		<button data-bind="click:save">Save</button>
+		<hr>
+		<table id="drt" data-api="{{api}}">
+		{{#rot}}
+			<tr>
+				<td>{{n}}</td>
+				<td>{{d}}</td>
+				<td class="{{T1}}">{{on}}</td>
+				<td>{{oc}}</td>
+				<td>{{op}}</td>
+				<td class="{{T2}}">{{cn}}</td>
+				<td>{{cs}}</td>
+				<td>{{cp}}</td>
+				<td>{{vd}}</td>
+			</tr>
+		{{/rot}}
+		</table>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+		<script src="../../js/kcpaging.js"></script>
+	</body>
+</html>

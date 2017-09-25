@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<style>
+			body { font-family:arial; font-weight:300; }
+			td { padding:5px 10px; border:1px solid #dcdcdc; }
+			.dirty { color:#ffffff; background-color:#ff0000; }
+		</style>
+	</head>
+	<body>
+		<table>
+		{{#rot}}
+			<tr>
+				<td>{{n}}</td>
+				<td>{{d}}</td>
+				<td class="{{T1}}">{{on}}</td>
+				<td>{{oc}}</td>
+				<td>{{op}}</td>
+				<td class="{{T2}}">{{cn}}</td>
+				<td>{{cs}}</td>
+				<td>{{cp}}</td>
+				<td>{{vd}}</td>
+			</tr>
+		{{/rot}}
+		</table>
+	</body>
+</html>
